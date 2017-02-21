@@ -105,7 +105,7 @@ WARNING: 1 error(s), 0 warning(s)
 ERROR: JSC_PARSE_ERROR. Parse error. '}' expected at /Users/prokopov/datascript/out/datascript/parser.js line 7639 : 0
 ```
 
-Note how output JS is not even syntatically correct:
+Note how output JS is not even syntactically correct:
 
 ```
 functio * @implements
@@ -121,7 +121,7 @@ __meta  * @implemthis.__extmap
 
 This is a clear sign that two or more threads are writing to the same file without coordination.
 
-Also note that with parallel build enabled, compiler confuses `declare` with function defenition and warns about `collect-vars-acc at line 470 is being replaced at line 470`. In fact, the function is definen just once, it is just declared a little earlier in the file with `declare`
+Also note that with parallel build enabled, compiler confuses `declare` with function defenition and warns about `collect-vars-acc at line 470 is being replaced at line 470`. In fact, the function is first `decalre`-d, then `defn`-ed just once in the same file, which, under normal circumstances, should not trigger any warnings.
 
 Also note that setting `:parallel-build false` leads to 100% stable, error-less builds:
 
